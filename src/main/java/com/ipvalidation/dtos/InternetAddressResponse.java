@@ -1,7 +1,5 @@
 package com.ipvalidation.dtos;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.ipvalidation.entities.InternetAddressLocation;
 import com.ipvalidation.enums.InternetAddressStatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

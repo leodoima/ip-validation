@@ -1,17 +1,14 @@
 package com.ipvalidation.services;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.ipvalidation.dtos.InternetAddress;
 import com.ipvalidation.dtos.InternetAddressResponse;
 import com.ipvalidation.entities.InternetAddressLocation;
 import com.ipvalidation.enums.InternetAddressStatusEnum;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service
