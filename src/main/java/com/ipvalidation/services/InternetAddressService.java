@@ -20,7 +20,8 @@ public class InternetAddressService {
     @Autowired
     private ModelMapper modelMapper;
 
-    private static final String hello = "Hello";
+    @Autowired
+    private InternetAddressLocationService locationService;
 
     public List<InternetAddressResponse> register(List<InternetAddress> internetAddressList) {
         List<InternetAddressResponse> internetAddressResponseList = new ArrayList<>();
@@ -35,21 +36,13 @@ public class InternetAddressService {
                 break;
             }
 
-            findLocationInternetAddress(response.getInternetAddress());
-
-            // InternetAddressLocation location = findLocationInternetAddress(response.getInternetAddress());
-            // modelMapper.map(location, response);
+            InternetAddressLocation location = locationService.findLocationInternetAddress(response.getInternetAddress());
+            modelMapper.map(location, response);
 
             internetAddressResponseList.add(response);
         }
 
         return internetAddressResponseList;
-    }
-
-    @Cacheable("locationInternetAddress")
-    public String findLocationInternetAddress(String internetAddress) {
-        System.out.println("Find location");
-        return hello;
     }
 
     public boolean isValidInternetAddress(String internetAddress) {
