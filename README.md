@@ -15,32 +15,31 @@ Este desafio é proposto para criar um aplicativo de fluxo Kafka autônomo que t
 ### Etapas 🎮
 <br>
 
-**Evento**
+1. **Evento**
 
-Receber uma sequência de eventos de IP em um tópico utilizando Kafka.
+   <i>Receber uma sequência de eventos de IP em um tópico utilizando Kafka.</i>
 <br>
 <br>
 
 
-**Validar localização em cache**
+2. **Validar localização em cache**
 
-Verificar se a localização do endereço IP já encontra-se em cache.
-<br>
-<br>
-
-**Buscar localização**
-
-Não havendo cache para tal, devemos buscar a localização de tal IP utilizando a API da IPStack.
+   <i>Verificar se a localização do endereço IP já encontra-se em cache.</i>
 <br>
 <br>
 
-**Registrar localização**
+3. **Buscar localização**
 
-Havendo obtido a localização de tal IP, devemos interpretar o retorno da API e disponibilizar as informações em um novo tópico Kafka.
-<br>
+    <i>Não havendo cache para tal, devemos buscar a localização de tal IP utilizando a API da IPStack.</i>
 <br>
 <br>
 
+4. **Registrar localização**
+
+   <i>Havendo obtido a localização de tal IP, devemos interpretar o retorno da API e disponibilizar as informações em um novo tópico Kafka.</i>
+<br>
+<br>
+<br>
 
 ### Tecnologias 🔧
 
@@ -53,10 +52,11 @@ As seguintes ferramentas foram utilizadas para construção desta aplicação:
 - Kafka
 <br>
 <br>
-
+  <br>
 ### Pré-requisitos 📋
 
-Esta aplicação fora desenvolvida utilizando a linguagem Java em sua versão 17, sendo esta necessária para a sequência dos passos.
+Esta aplicação fora desenvolvida utilizando a linguagem **Java em sua versão 17**, sendo esta necessária para a sequência dos passos.
+<br>
 <br>
 <br>
 
