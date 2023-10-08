@@ -1,4 +1,4 @@
-package com.ipvalidation.configurations;
+package com.ipvalidation.adapters.configurations;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

@@ -1,9 +1,9 @@
-package com.ipvalidation.services;
+package com.ipvalidation.usecases.services;
 
-import com.ipvalidation.dtos.InternetAddress;
-import com.ipvalidation.dtos.InternetAddressResponse;
-import com.ipvalidation.entities.InternetAddressLocation;
-import com.ipvalidation.enums.InternetAddressStatusEnum;
+import com.ipvalidation.domain.dtos.InternetAddress;
+import com.ipvalidation.domain.dtos.InternetAddressResponse;
+import com.ipvalidation.domain.entities.InternetAddressLocation;
+import com.ipvalidation.domain.enums.InternetAddressStatusEnum;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

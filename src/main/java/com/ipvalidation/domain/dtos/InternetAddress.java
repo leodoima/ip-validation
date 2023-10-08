@@ -1,4 +1,4 @@
-package com.ipvalidation.dtos;
+package com.ipvalidation.domain.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

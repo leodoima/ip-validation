@@ -1,6 +1,6 @@
-package com.ipvalidation.entities;
+package com.ipvalidation.domain.entities;
 
-import com.ipvalidation.enums.InternetAddressStatusEnum;
+import com.ipvalidation.domain.enums.InternetAddressStatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

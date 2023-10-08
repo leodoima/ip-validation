@@ -1,6 +1,6 @@
-package com.ipvalidation.entities;
+package com.ipvalidation.domain.dtos;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.ipvalidation.domain.enums.InternetAddressStatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,11 +12,11 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @Setter
-public class InternetAddressLocation {
-    @JsonProperty("country_name")
+public class InternetAddressResponse {
+    private String internetAddress;
     private String countryName;
-    @JsonProperty("region_code")
     private String regionCode;
     private String city;
     private Date createdAt;
+    private InternetAddressStatusEnum status;
 }

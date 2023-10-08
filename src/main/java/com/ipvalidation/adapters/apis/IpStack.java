@@ -1,6 +1,6 @@
-package com.ipvalidation.apis;
+package com.ipvalidation.adapters.apis;
 
-import com.ipvalidation.entities.InternetAddressLocation;
+import com.ipvalidation.domain.entities.InternetAddressLocation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
