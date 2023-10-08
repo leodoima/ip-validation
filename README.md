@@ -19,19 +19,15 @@ Este desafio é proposto para criar um aplicativo de fluxo Kafka autônomo que t
 
    <i>Receber uma sequência de eventos de IP em um tópico utilizando Kafka.</i>
 <br>
-<br>
-
 
 2. **Validar localização em cache**
 
    <i>Verificar se a localização do endereço IP já encontra-se em cache.</i>
 <br>
-<br>
 
 3. **Buscar localização**
 
     <i>Não havendo cache para tal, devemos buscar a localização de tal IP utilizando a API da IPStack.</i>
-<br>
 <br>
 
 4. **Registrar localização**
