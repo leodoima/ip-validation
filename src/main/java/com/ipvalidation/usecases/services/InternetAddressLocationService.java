@@ -23,10 +23,10 @@ public class InternetAddressLocationService {
     private static final Logger LOGGER = LoggerFactory.getLogger(InternetAddressLocationService.class);
 
     @Cacheable(value = "locationInternetAddress")
-    public InternetAddressLocation findLocationInternetAddress(String internetAddress) {
+    public InternetAddressLocation findLocation(String internetAddress) {
         LOGGER.info("Initialized find location for internet address {}", internetAddress);
 
-        InternetAddressLocation location = ipStack.getIpStack(internetAddress);
+        var location = ipStack.getIpStack(internetAddress);
         LOGGER.info("Return of IpStack {}", location);
 
         location.setCreatedAt(new Date());

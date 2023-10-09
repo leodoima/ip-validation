@@ -5,7 +5,6 @@ plugins {
 }
 
 group = 'com.ip-validation'
-version = '0.0.1-SNAPSHOT'
 
 java {
 	sourceCompatibility = '17'
@@ -30,6 +29,8 @@ dependencies {
 	implementation 'io.springfox:springfox-swagger2:3.0.0'
 	implementation 'org.modelmapper:modelmapper:3.0.0'
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
+	implementation 'org.springframework.kafka:spring-kafka'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

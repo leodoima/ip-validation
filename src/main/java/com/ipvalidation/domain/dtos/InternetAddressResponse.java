@@ -1,6 +1,5 @@
 package com.ipvalidation.domain.dtos;
 
-import com.ipvalidation.domain.enums.InternetAddressStatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,10 +12,14 @@ import java.util.Date;
 @Getter
 @Setter
 public class InternetAddressResponse {
+
     private String internetAddress;
     private String countryName;
     private String regionCode;
     private String city;
     private Date createdAt;
-    private InternetAddressStatusEnum status;
+
+    public InternetAddressResponse(String internetAddress) {
+        this.internetAddress = internetAddress;
+    }
 }
