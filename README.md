@@ -42,10 +42,11 @@ Este desafio é proposto para criar um aplicativo de fluxo Kafka autônomo que t
 As seguintes ferramentas foram utilizadas para construção desta aplicação:
 
 - Java
-- Spring Cache
-- Open Feign
-- API IP Stack ([ipstack.com](https://ipstack.com/))
 - Kafka
+- Swagger
+- Open Feign
+- Spring Cache
+- API IP Stack ([ipstack.com](https://ipstack.com/))
 <br>
 <br>
   <br>
@@ -65,13 +66,13 @@ $ git clone https://github.com/leodoima/ip-validation.git
 # Ir para a pasta raiz do projeto
 $ cd ip-validation
 
-# Realizar dependências e criar executável
+# Criar dependências, gerar executável e rodar aplicação
+$ docker compose up --build
+
+# Caso opte por criar manualmente o executável
+$ docker compose up --build zookeeper kafka 
 $ ./gradlew clean build
-
-# Acessar a pasta que contém o executável da aplicação
 $ cd /build/libs
-
-# Executar a aplicação através do arquivo .jar
 $ java -jar ip-validation.jar
 
 # Aplicação estará executando no endereço

@@ -2,6 +2,7 @@ package com.ipvalidation.usecases.services;
 
 import com.ipvalidation.domain.dtos.InternetAddressRequest;
 import com.ipvalidation.domain.dtos.InternetAddressResponse;
+import com.ipvalidation.domain.entities.InternetAddress;
 import com.ipvalidation.usecases.producers.InternetAddressRegistrationProducer;
 import lombok.Getter;
 import org.modelmapper.ModelMapper;
@@ -30,7 +31,7 @@ public class InternetAddressService {
     private InternetAddressLocationService internetAddressLocationService;
 
     @Getter
-    private List<InternetAddressResponse> addressResponseList = new ArrayList<>();
+    private List<InternetAddress> addressList = new ArrayList<>();
 
     private static final Logger LOGGER = LoggerFactory.getLogger(InternetAddressService.class);
 
@@ -46,24 +47,36 @@ public class InternetAddressService {
                 break;
             }
 
-            registrationProducer.sendMessage(internetAddressRequest.getInternetAddress());
+            registrationProducer.sendMessage(internetAddressRequest);
 
             LOGGER.info("Validation process and topic insertion finalized for internet address {}", internetAddressRequest.getInternetAddress());
         }
         LOGGER.info("Finalized process for list internet address");
     }
 
-    public void process(String internetAddress) {
+    public void process(InternetAddress internetAddress) {
         LOGGER.info("Init process of location for internet address {}", internetAddress);
-        var addressResponse = new InternetAddressResponse(internetAddress);
 
-        var location = internetAddressLocationService.findLocation(internetAddress);
-        LOGGER.info("Location for {}: {}", internetAddress, location.toString());
+        var location = internetAddressLocationService.findLocation(internetAddress.getInternetAddress());
+        LOGGER.info("Location for {}: {}", internetAddress.getInternetAddress(), location.toString());
 
-        modelMapper.map(location, addressResponse);
-        addressResponseList.add(addressResponse);
+        modelMapper.map(location, internetAddress);
+        addressList.add(internetAddress);
 
         LOGGER.info("Added location in list");
+    }
+
+    public List<InternetAddressResponse> listAll() {
+        LOGGER.info("Initialized convert list for internetAddress.listAll()");
+
+        return addressList.stream().map(internetAddress -> {
+            return new InternetAddressResponse(
+                    internetAddress.getInternetAddress(),
+                    internetAddress.getLocation().getCountryName(),
+                    internetAddress.getLocation().getRegionCode(),
+                    internetAddress.getLocation().getCity(),
+                    internetAddress.getLocation().getCreatedAt());
+        }).toList();
     }
 
     public boolean isValidInternetAddress(String internetAddress) {

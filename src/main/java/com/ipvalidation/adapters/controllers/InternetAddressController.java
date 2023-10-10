@@ -24,7 +24,7 @@ public class InternetAddressController {
     }
 
     @GetMapping("/list")
-    public ResponseEntity<List<InternetAddressResponse>> list() {
-        return ResponseEntity.ok().body(internetAddressService.getAddressResponseList());
+    public ResponseEntity<List<InternetAddressResponse>> listAll() {
+        return ResponseEntity.ok().body(internetAddressService.listAll());
     }
 }
