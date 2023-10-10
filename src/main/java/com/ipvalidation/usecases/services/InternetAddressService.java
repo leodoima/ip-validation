@@ -6,6 +6,8 @@ import com.ipvalidation.domain.entities.InternetAddress;
 import com.ipvalidation.usecases.producers.InternetAddressRegistrationProducer;
 import lombok.Getter;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
+import org.modelmapper.spi.MatchingStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,13 +71,10 @@ public class InternetAddressService {
     public List<InternetAddressResponse> listAll() {
         LOGGER.info("Initialized convert list for internetAddress.listAll()");
 
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+
         return addressList.stream().map(internetAddress -> {
-            return new InternetAddressResponse(
-                    internetAddress.getInternetAddress(),
-                    internetAddress.getLocation().getCountryName(),
-                    internetAddress.getLocation().getRegionCode(),
-                    internetAddress.getLocation().getCity(),
-                    internetAddress.getLocation().getCreatedAt());
+            return modelMapper.map(internetAddress, InternetAddressResponse.class);
         }).toList();
     }
 
