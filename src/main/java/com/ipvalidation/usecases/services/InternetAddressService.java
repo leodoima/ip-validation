@@ -7,7 +7,6 @@ import com.ipvalidation.usecases.producers.InternetAddressRegistrationProducer;
 import lombok.Getter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
-import org.modelmapper.spi.MatchingStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 @Service
 public class InternetAddressService {
@@ -79,6 +79,6 @@ public class InternetAddressService {
     }
 
     public boolean isValidInternetAddress(String internetAddress) {
-        return true;
+        return Pattern.matches("^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$", internetAddress);
     }
 }
